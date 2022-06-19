@@ -38,12 +38,12 @@ function asks all necessary info to successfully connect to AD DC
             user_dn=str(ldap_conn.entries).split(' - ')[0].replace('[DN: ','')
             if action == 'rem':
                     try:
-                        rm=ad_rfg(l,udn,gdn,fix=True)
+                        rm = ad_rfg(l,udn,gdn,fix=True)
                         print(rm)
                     except ldap3.core.exceptions.LDAPInvalidDnError:
                         print(f'User with employeeID {user_id} probably was blocked')
             elif action == 'add':
-                add=ad_mtg(ldap_conn,user_dn,group_dn)
+                add = ad_mtg(ldap_conn,user_dn,group_dn)
                 print(add)
     return 'Done'
     
