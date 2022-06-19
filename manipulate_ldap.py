@@ -9,7 +9,7 @@ from ldap3.extend.microsoft.removeMembersFromGroups import ad_remove_members_fro
 def ad_membership(filename=None):
 '''
 This function add/remove users to/from AD group
-function get filename as argument
+function gets filename as an argument
 function asks all necessary info to successfully connect to AD DC
 '''
 
