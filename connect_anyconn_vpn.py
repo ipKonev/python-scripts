@@ -1,4 +1,8 @@
 import iperf3
+import sys
+import os
+import keyring
+import click
 import pexpect
 from pprint import pprint
 from pyzabbix import ZabbixMetric, ZabbixSender
@@ -23,7 +27,8 @@ def stop_vpn():
     stop = subprocess.run("/opt/cisco/anyconnect/bin/vpn disconnect", shell=True, encoding='utf-8', stdout=subprocess.DEVNULL)
 
 def kill_hanging_py():
-    stop = subprocess.run('kill -9 $(pgrep python3)', shell=True)        
+    #stop = subprocess.run('kill -9 $(pgrep python3.8)', shell=True)        
+    return subprocess.run( f'kill -9 {os.getpid()}', shell=True)     
 
 def resolve_hostnames(ise_name, ise_addr):
     return 1 if socket.gethostbyname(ise_name) == ise_addr else 0
