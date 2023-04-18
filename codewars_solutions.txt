@@ -62,3 +62,15 @@ def to_weird_case_word(string):
     
 def to_weird_case(string):
     return " ".join(to_weird_case_word(str) for str in string.split())
+-----------------------------------------------------------------
+
+from gmpy2 import mpz
+
+def sum_strings(x, y):
+    return str(mpz(x or '0') + mpz(y or '0'))
+-----------------------------------------------------------------
+
+def find_it(seq):
+    for i in seq:
+        if seq.count(i)%2!=0:
+            return i
